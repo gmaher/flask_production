@@ -1,8 +1,10 @@
+daemon off;
+
 server {
-    listen 80;
+    listen 8999;
 
     location / {
       include uwsgi_params;
-      uwsgi_pass unix:/home/flask_production/flask_production.sock;
+      proxy_pass http://localhost:8000;
     }
 }
