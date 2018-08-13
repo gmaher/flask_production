@@ -18,5 +18,7 @@ RUN venv/bin/pip install uwsgi
 
 COPY . .
 
+RUN cp flask_production.service /etc/systemd/system
+
 RUN cp flask_production.nginx /etc/nginx/sites-available/flask_production
 RUN ln -s /etc/nginx/sites-available/flask_production /etc/nginx/sites-enabled
