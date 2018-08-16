@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "build"'
+                sh 'echo CHECKING OUT MASTER'
+                sh 'git checkout master'
             }
         }
         stage('Test') {
@@ -13,7 +14,8 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'echo "deploy"'
+                sh 'echo PUSHING TO GITHUB...'
+                sh 'git push origin master'
             }
         }
     }
