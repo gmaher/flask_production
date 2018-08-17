@@ -23,8 +23,7 @@ pipeline {
                   variable: 'TOKEN')]) {
 
                   sh('echo token ${TOKEN}')
-                  //sh('echo pass ${GIT_PASSWORD}')
-                  //sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/gmaher/flask_production.git')
+                  sh('git push https://gmaher:${TOKEN}@github.com/gmaher/flask_production.git')
 
               }
             }
