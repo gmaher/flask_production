@@ -1,7 +1,5 @@
 pipeline {
 
-git([credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96'])
-
     agent any
     stages {
         stage('Build') {
@@ -18,6 +16,12 @@ git([credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96'])
         }
         stage('Deploy') {
             steps {
+
+                git(
+                  credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96',
+                  branch: 'master'
+                  )
+
                 sh 'echo PUSHING TO GITHUB...'
                 sh 'git push origin master'
             }
