@@ -19,13 +19,12 @@ pipeline {
 
                 sh 'echo PUSHING TO GITHUB...'
                 withCredentials([
-                  usernamePassword(credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96',
-                  passwordVariable: 'GIT_PASSWORD',
-                  usernameVariable: 'GIT_USERNAME')]) {
+                  string(credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96',
+                  variable: 'TOKEN')]) {
 
-                  sh('echo user ${GIT_USERNAME}')
-                  sh('echo pass ${GIT_PASSWORD}')
-                  sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/gmaher/flask_production.git')
+                  sh('echo token ${TOKEN}')
+                  //sh('echo pass ${GIT_PASSWORD}')
+                  //sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/gmaher/flask_production.git')
 
               }
             }
