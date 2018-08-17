@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh 'echo CHECKING OUT MASTER'
                 sh 'git checkout master'
-                sh 'git merge -m "jenkins" dev'
+                sh 'git merge -m "jenkins" origin/dev'
             }
         }
         stage('Test') {
