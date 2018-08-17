@@ -27,11 +27,11 @@ pipeline {
                 sh 'echo PUSHING TO GITHUB...'
 
                 withCredentials([
-                  string(credentialsId: '${CRED_ID}',
+                  string(credentialsId: "${CRED_ID}",
                   variable: 'TOKEN')]) {
 
                   sh('echo token ${TOKEN}')
-                  sh('git push https://${GIT_USER}:${TOKEN}@${GIT_URL}')
+                  sh("git push https://${GIT_USER}:${TOKEN}@${GIT_URL}")
 
               }
             }
