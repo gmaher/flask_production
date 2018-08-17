@@ -1,10 +1,14 @@
 pipeline {
+
+git([credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96'])
+
     agent any
     stages {
         stage('Build') {
             steps {
                 sh 'echo CHECKING OUT MASTER'
                 sh 'git checkout master'
+                sh 'git merge -m "jenkins" dev'
             }
         }
         stage('Test') {
