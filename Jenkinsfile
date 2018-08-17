@@ -17,14 +17,17 @@ pipeline {
         stage('Deploy') {
             steps {
 
-                git(
-                  url: 'https://github.com/gmaher/flask_production.git',
-                  credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96',
-                  branch: 'master'
-                  )
-
                 sh 'echo PUSHING TO GITHUB...'
-                sh 'git push origin master'
+                withCredentials([
+                  usernamePassword(credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96',
+                  passwordVariable: 'GIT_PASSWORD',
+                  usernameVariable: 'GIT_USERNAME')]) {
+
+                  sh('echo user ${GIT_USERNAME}')
+                  sh('echo pass ${GIT_PASSWORD}')
+                  sh('git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/gmaher/flask_production.git')
+
+              }
             }
         }
     }
