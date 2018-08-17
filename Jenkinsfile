@@ -1,12 +1,10 @@
+def GIT_USER = 'gmaher'
+def GIT_URL  = 'github.com/gmaher/flask_production.git'
+def CRED_ID  = 'cb03d560-aa5c-4b68-a538-ad77a657ef96'
+
 pipeline {
 
     agent any
-
-    environment {
-      GIT_USER = 'gmaher'
-      GIT_URL  = 'github.com/gmaher/flask_production.git'
-      CRED_ID  = 'cb03d560-aa5c-4b68-a538-ad77a657ef96'
-    }
 
     stages {
         stage('Build') {
@@ -29,11 +27,11 @@ pipeline {
                 sh 'echo PUSHING TO GITHUB...'
 
                 withCredentials([
-                  string(credentialsId: '${env.CRED_ID}',
+                  string(credentialsId: '${CRED_ID}',
                   variable: 'TOKEN')]) {
 
                   sh('echo token ${TOKEN}')
-                  sh('git push https://${env.GIT_USER}:${TOKEN}@${env.GIT_URL}')
+                  sh('git push https://${GIT_USER}:${TOKEN}@${GIT_URL}')
 
               }
             }
