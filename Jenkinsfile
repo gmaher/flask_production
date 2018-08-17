@@ -18,6 +18,7 @@ pipeline {
             steps {
 
                 git(
+                  url: 'https://github.com/gmaher/flask_production.git',
                   credentialsId: 'cb03d560-aa5c-4b68-a538-ad77a657ef96',
                   branch: 'master'
                   )
