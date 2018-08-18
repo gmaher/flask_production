@@ -39,7 +39,7 @@ pipeline {
 
               }
 
-              sh("docker rm $(docker stop $(docker ps -a -q --filter ancestor=${DOCKER_IMAGE} --format='{{.ID}}'))")
+              sh("docker rm \$(docker stop \$(docker ps -a -q --filter ancestor=${DOCKER_IMAGE} --format='{{.ID}}'))")
               sh("docker build -t ${DOCKER_IMAGE} .")
               sh("docker run -dp ${HOST_PORT}:${DOCKER_PORT} ${DOCKER_IMAGE}")
             }
