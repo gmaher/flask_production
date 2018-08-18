@@ -1,9 +1,9 @@
 def GIT_USER     = 'gmaher'
 def GIT_URL      = 'github.com/gmaher/flask_production.git'
 def CRED_ID      = 'cb03d560-aa5c-4b68-a538-ad77a657ef96'
-def DOCKER_IMAGE = ${env.DOCKER_IMAGE}
-def DOCKER_PORT  = ${env.DOCKER_PORT}
-def HOST_PORT    = ${env.HOST_PORT}
+def DOCKER_IMAGE = "${env.DOCKER_IMAGE}"
+def DOCKER_PORT  = "${env.DOCKER_PORT}"
+def HOST_PORT    = "${env.HOST_PORT}"
 
 pipeline {
 
