@@ -6,7 +6,7 @@ app.config.from_object(config)
 
 @app.route('/')
 def hello():
-    return "<h1>hello world</h1>"
+    return "<h1>hello world NEW!!!</h1>"
 
 if __name__ == "__main__":
     app.run(host=config.HOST, port=config.PORT)
