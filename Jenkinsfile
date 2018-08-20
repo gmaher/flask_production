@@ -1,9 +1,6 @@
 def GIT_USER     = 'gmaher'
 def GIT_URL      = 'github.com/gmaher/flask_production.git'
 def CRED_ID      = 'cb03d560-aa5c-4b68-a538-ad77a657ef96'
-def DOCKER_IMAGE = "${env.DOCKER_IMAGE}"
-def DOCKER_PORT  = "${env.DOCKER_PORT}"
-def HOST_PORT    = "${env.HOST_PORT}"
 
 pipeline {
 
@@ -12,7 +9,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "echo ${DOCKER_IMAGE} ${DOCKER_PORT} ${HOST_PORT}"
                 sh 'echo CHECKING OUT MASTER'
                 sh 'git checkout master'
                 sh 'git merge -m "jenkins" origin/dev'
@@ -39,9 +35,7 @@ pipeline {
 
               }
 
-              sh("docker rm \$(docker stop \$(docker ps -a -q --filter ancestor=${DOCKER_IMAGE} --format='{{.ID}}'))")
-              sh("docker build -t ${DOCKER_IMAGE} .")
-              sh("docker run -dp ${HOST_PORT}:${DOCKER_PORT} ${DOCKER_IMAGE}")
+              sh('deploy.sh')
             }
         }
     }
