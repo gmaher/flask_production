@@ -34,8 +34,8 @@ pipeline {
                   sh("git push https://${GIT_USER}:${TOKEN}@${GIT_URL}")
 
               }
-
-              sh('deploy.sh')
+              sh('chmod +x deploy.sh')
+              sh('./deploy.sh')
             }
         }
     }
