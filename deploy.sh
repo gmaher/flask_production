@@ -9,6 +9,7 @@ if [ "$ID" == "" ]; then
   echo "NO RUNNING CONTAINERS WITH ANCESTOR FLASK_PRODUCTION PROCEEDING TO BUILD"
 else
   echo "FOUND RUNNING DOCKER CONTAINER WITH ID $ID"
+  docker kill $ID
   docker rm $ID
 fi
 
