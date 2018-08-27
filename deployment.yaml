@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask_production
+  name: flask-production
   labels:
     app: flask_production
 spec:
@@ -15,7 +15,7 @@ spec:
         app: flask_production
     spec:
       containers:
-      - name: flask_production
+      - name: flask-production
         image: loanwhale/flask_production
         ports:
-        - containerPort: 8000
+        - containerPort: 8999
