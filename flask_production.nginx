@@ -2,7 +2,7 @@ server {
     listen 8999;
 
     location /static/ {
-      alias /home/nginx_user/flask_production/static/;
+      alias /home/nginx_user/production_app/app/static/;
       index static.html;
     }
 

@@ -2,7 +2,7 @@ from ubuntu:16.04
 
 RUN useradd -ms /bin/bash nginx_user
 
-WORKDIR /home/nginx_user/flask_production
+WORKDIR /home/nginx_user/production_app
 
 RUN apt-get update \
   && apt-get install -y python3\
